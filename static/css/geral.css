@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=News+Cycle');
+@import url('https://fonts.googleapis.com/css?family=Khand');
+@import url('https://fonts.googleapis.com/css?family=Aleo');
+
+@font-face{
+    font-family: 'kiona';
+    src: url('../fonts/Kiona-Regular.ttf');
+}
+@font-face{
+    font-family: 'thebold';
+    src: url('../fonts/theboldfont.ttf')
+}
+
+h1, h2, h3, h4{
+    text-transform: uppercase;
+    font-family: 'News Cycle', sans-serif;
+}
+
+.cabecalho{
+    background-image: url('../imgs/background.jpg');
+    background-size: cover;
+    font-family: 'kiona';
+}
+
+#logo{
+    text-align: center;
+    /* margin: 140px 0px 0px 0px; */
+    color: #ffffff;
+    /* color:  */
+}
+
+#logo h1{
+    font-size: 200%;
+    letter-spacing: 20px;
+    margin: 30px 0px;
+}
+
+
+#logo h2{
+    letter-spacing: 10px;
+    font-size: 100%;
+    /* margin: 30px 0px 150px 0px; */
+}
+
+
+#logo button{
+    font-size: 20pt;
+    text-transform: uppercase;
+    border: 5;
+}
+
+#logo_campus{
+    height: 30px;
+    /* margin: 0px 70px; */
+}
+
+.parallax{
+    background-attachment: fixed;
+	background-size: cover;
+	background-position: 50% 0%;
+	position: relative;
+}
+
+.black{
+    background-color: #000000;
+}
+
+.transparencia{
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+    /* position: fixed; */
+    /* width: 100%; */
+    transition: 0.2s;
+}
+
+#nav .nav-link{
+    color: #ffffff;
+    transition: 0.2s;
+}
+
+#nav .nav-link:hover{
+    color: #ce0000;
+    transition: 0.2s;
+}
+
+section{
+    padding: 40px 0px;
+}
+
+section h1{
+    font-size: 28pt;
+    text-align: center;
+    margin-bottom: 50px;
+    /* text-shadow: 0px 4px 0px #ebb552; */
+    font-family: 'thebold';
+    
+}
+
+section p{
+    /* text-indent: 1.5cm; */
+    text-align: center;
+    font-size: 15pt;
+    font-family: 'News Cycle', sans-serif;
+}
+
+.buttons button{
+    font-size: 14pt;
+    margin-top: 10px;
+}
+
+.buttons{
+    text-align: center;
+}
+
+button{
+    font-family: 'kiona';
+}

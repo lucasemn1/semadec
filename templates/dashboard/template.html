@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        type="text/css">
+    <!-- <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap-4.3.1.css' %}">
+    <title>SEMADEC - Controle - {{titulo_pag}}</title>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'css/geral.css' %}">
+    <link rel="stylesheet" href="{% static 'css/classes.css' %}">
+    <style>
+    </style>
+</head>
+
+<body>
+    
+    <!-- Nav -->
+    <nav class="navbar navbar-expand-md navbar-dark dark-strong fixed-top">
+        <div class="container"> <button class="navbar-toggler navbar-toggler-right border-0" type="button"
+                data-toggle="collapse" data-target="#navbar12">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar12">
+                    <a href="#">
+                        <img src="{% static 'imgs/logo_campus.png' %}" alt="" id="logo_campus">
+                    </a>
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"> <a class="nav-link" href="{% url 'index_dashboard' %}">P. Inicial</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="{% url 'index_dashboard' %}#equipes_participantes">Equipes participantes</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="{% url 'index_dashboard' %}#minhas_equipes">Minhas equipes</a> </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <!-- <li class="nav-item"> <a class="nav-link" href="">Sair</a> </li> -->
+                    <!-- <li class="nav-item"> <a class="nav-link text-info" href="#"><i class="fa fa-user fa-fw"></i>
+                            {{user.nome}} </a> </li> -->
+
+                    <div class="dropdown">
+                        <button class="btn text-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Bem-vindo(A), {{primeiro_nome}}!
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Meus dados</a>
+                            <a class="dropdown-item" href="{% url 'logout_user' %}">Sair</a>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="row bg-dark m-0">
+        <div class="col-12">
+            <!-- Logo -->
+            <div class="row py-5" id="logo">
+                <div class="col-12">
+                    <h1 class="pt-3"><b>SEMADEC 2019</b></h1>
+                    <h2>TEXTO DO SIGNIFICADO DE SEMADEC</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% block 'content' %}
+    {% endblock %}
+
+    <div class="pt-3 pb-2 text-white mt-5 bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center align-self-center p-4">
+                    <p class=""> <strong>SEMADEC 2018.</strong> <br> IFRN - Campus Avançado Parelhas - Todos os
+                        direitos
+                        reservados<br> Desenvolvido por: <a href="https://github.com/lucasemn1" target="blank">Lucas Emanuel N. Nóbrega Dias</a> <br></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% block 'scripts' %}
+    {% endblock %}
+    <script src="{% static 'js/jquery-3.4.0.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/geral.js' %}"></script>
+</body>
+
+</html>

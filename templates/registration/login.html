@@ -1,0 +1,17 @@
+{% extends 'registration/template.html' %}
+
+{% load bootstrap4 %}
+
+{% block 'content' %}
+    <h1 class="mb-4">ENTRAR</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <div class="buttons pt-3 text-center">
+            <button type="submit" class="btn btn-primary btn-sm w-100 btn-block p-2">Confirmar</button>
+            <a class="btn btn-link p-2 my-1" href="{% url 'usuario_create' %}">Criar conta</a>
+            <a class="btn btn-link p-2 my-1" href="#">Página dos visitantes</a>
+        </div>
+    </form>
+
+{% endblock %}

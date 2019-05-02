@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    {% load bootstrap4 %}
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap-4.3.1.css' %}">
+    <link rel="stylesheet" href="{% static 'css/usuario.css' %}">
+    <title>SEMADEC - Controle - {{titulo_pag}}</title>
+</head>
+
+<body>
+    <div class="py-5 h-100">
+        <div class="container">
+            <div class="row">
+                <div class="mx-auto col-md-7 col-10 bg-white p-5 caixa_form">
+                    <!-- <h1 class="mb-4">Novo cadastro</h1>
+                    <p class="text-danger"><b>LEMBRE-SE</b> da senha informada pois até o momento <b>NÃO É POSSÍVEL</b> recuperá-la ou alterá-la.</p>
+                    <form method="POST">
+                        {% csrf_token %}
+                        {% bootstrap_form form %}
+                        <div class="buttons pt-3 text-center">
+                            <button type="submit" class="btn btn-primary btn-sm w-100 btn-block p-2">Confirmar</button>
+                            <a class="btn btn-link p-2 my-1" href="{% url 'login' %}">Login</a>
+                            <a class="btn btn-link p-2 my-1" href="#">Página dos visitantes</a>
+                        </div>
+                    </form> -->
+
+                    {% block 'content' %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/jquery-3.4.0.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/geral.js' %}"></script>
+</body>
+
+</html>

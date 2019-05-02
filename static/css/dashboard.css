@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Righteous');
+
+.bt-tabela{
+    width: 100px;
+}
+
+h1, h2{
+    font-family: 'Righteous', cursive;
+}
+
+
+.table-card{
+    background-color: rgba(0, 0, 0, 0.04);
+    border-style: solid;
+    border-color: rgba(0 , 0 , 0 , 0.3);
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-top-width: 0px;
+    border-bottom-width: 3px;
+    padding: 30px;
+    margin: 10px 0px;
+}
