@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=News+Cycle');
 @import url('https://fonts.googleapis.com/css?family=Khand');
 @import url('https://fonts.googleapis.com/css?family=Aleo');
+@import url('https://fonts.googleapis.com/css?family=Rajdhani');
 
 @font-face{
     font-family: 'kiona';
@@ -12,54 +13,20 @@
     src: url('../fonts/theboldfont.ttf')
 }
 
+.parallax{
+    background-size: 100%;
+    background-position-x: 50%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
 h1, h2, h3, h4{
     text-transform: uppercase;
     font-family: 'News Cycle', sans-serif;
 }
 
-.cabecalho{
-    background-image: url('../imgs/background.jpg');
-    background-size: cover;
-    font-family: 'kiona';
-}
-
-#logo{
-    text-align: center;
-    /* margin: 140px 0px 0px 0px; */
-    color: #ffffff;
-    /* color:  */
-}
-
-#logo h1{
-    font-size: 200%;
-    letter-spacing: 20px;
-    margin: 30px 0px;
-}
-
-
-#logo h2{
-    letter-spacing: 10px;
-    font-size: 100%;
-    /* margin: 30px 0px 150px 0px; */
-}
-
-
-#logo button{
-    font-size: 20pt;
-    text-transform: uppercase;
-    border: 5;
-}
-
 #logo_campus{
     height: 30px;
-    /* margin: 0px 70px; */
-}
-
-.parallax{
-    background-attachment: fixed;
-	background-size: cover;
-	background-position: 50% 0%;
-	position: relative;
 }
 
 .black{
@@ -68,8 +35,6 @@ h1, h2, h3, h4{
 
 .transparencia{
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
-    /* position: fixed; */
-    /* width: 100%; */
     transition: 0.2s;
 }
 
@@ -83,25 +48,6 @@ h1, h2, h3, h4{
     transition: 0.2s;
 }
 
-section{
-    padding: 40px 0px;
-}
-
-section h1{
-    font-size: 28pt;
-    text-align: center;
-    margin-bottom: 50px;
-    /* text-shadow: 0px 4px 0px #ebb552; */
-    font-family: 'thebold';
-    
-}
-
-section p{
-    /* text-indent: 1.5cm; */
-    text-align: center;
-    font-size: 15pt;
-    font-family: 'News Cycle', sans-serif;
-}
 
 .buttons button{
     font-size: 14pt;
@@ -114,4 +60,11 @@ section p{
 
 button{
     font-family: 'kiona';
+}
+
+@media(max-width: 1080px){
+    .parallax{
+        background-size: 300%;
+        background-position-x: 0%;
+    }
 }

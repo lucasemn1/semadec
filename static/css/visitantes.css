@@ -1,0 +1,163 @@
+body{
+    background-image: url('../imgs/background2.jpg');
+    
+}
+
+hr{
+    width: 50px;
+    background-color: #92af7b;
+    height: 2px;
+}
+
+h1{
+    font-size: 18pt;
+}
+
+h1, h2, h3, h4, h5{
+    font-family: 'thebold';
+}
+
+p{
+    font-size: 12pt;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.btn-semadec{
+    font-family: 'thebold';
+    color: #658a23;
+    border: 1px solid #658a23;
+    border-radius: 10px;
+    font-size: 10pt;
+}
+
+.btn-semadec:hover{
+    color: #ffffff;
+    background-color: #658a23;
+}
+
+.bg-green{
+    background-color: #658a23;
+}
+
+#logo{
+    padding: 100px 0px;
+    border-top: #92af7b 75px solid;
+    border-bottom: #92af7b 20px solid;
+    /* background-color: #eeeeee; */
+}
+
+#logo_semadec{
+    width: 400px;
+    /* background-color: #ffffff; */
+}
+
+.nav-item{
+    font-family: 'News Cycle', sans-serif;
+    font-size: 11pt;
+    transition: 0.3s;
+}
+
+.nav-item:hover{
+    transition: 0.3s;
+    border-bottom: 2px solid #000000;
+}
+
+#content{
+    background-color: #ffffff;
+}
+
+.evento_topicos{
+    text-align: center;
+    padding: 50px 30px;
+}
+
+.evento_topicos img{
+    width: 100px;
+    background-color: rgba(0, 0, 0, 0.02);
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.evento_topicos h5{
+    margin-top: 40px;
+}
+
+.boxes{
+}
+
+.boxes .texto{
+    padding: 50px 200px;
+}
+
+.boxes .imagem{
+    padding: 70px;
+    background-color: #92af7b;
+    text-align: center;
+}
+
+.boxes .imagem img{
+    width: 100%;
+}
+
+.boxes h1{
+    font-size: 16pt;
+    text-align: center;
+    font-family: 'thebold';
+    letter-spacing: 4px;
+}
+
+.boxes .texto p{
+    /* text-indent: 1.5cm; */
+    text-align: justify;
+    text-indent: 1.5cm;
+    font-size: 12pt;
+    /* font-family: 'News Cycle', sans-serif; */
+    font-family: 'Rajdhani', sans-serif;
+}
+
+#img_campeonato{
+    width: 200px;
+}
+
+.regulamentos{
+    /* border: 1px solid rgba(150, 177, 129, 0.5); */
+    border-radius: 10px;
+    padding: 0px 30px;
+}
+
+.horarios h1, .regulamentos h1{
+    text-align: center;
+}
+
+.regulamentos p{
+    font-size: 14pt;
+    text-align: center;
+}
+
+#mapa{
+    width: 100%;
+    height: 300px;
+    margin-bottom: -7px;
+}
+
+#footer{
+    background-color: #92af7b;
+}
+
+#footer img{
+    height: 30px;
+}
+
+@media (max-width: 1080px){
+    #logo_semadec{
+        width: 300px;
+    }
+
+    .boxes .texto{
+        padding: 70px 50px 70px 50px;
+    }
+
+    #img_campeonato{
+        width: 70px;
+    }
+}

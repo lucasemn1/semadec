@@ -28,8 +28,9 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 # ----------------------------------------------------------- ATIVAR AO UPAR PARA O HEROKU
-# ALLOWED_HOSTS = ['semadec.herokuapp.com', 'localhost:8000']
-ALLOWED_HOSTS = [] # DESATIVAR AO UPAR PARA O HEROKU
+
+ALLOWED_HOSTS = ['semadec.herokuapp.com']
+# ALLOWED_HOSTS = [] # DESATIVAR AO UPAR PARA O HEROKU
 AUTH_USER_MODEL = 'account.Usuario'
 
 
@@ -81,25 +82,25 @@ WSGI_APPLICATION = 'semadec.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-# DATABASES = {
-#     'sqlite': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     },
+DATABASES = {
+    'sqlite': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    },
 
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql', 
-#         'NAME': 'semadec',
-#         'USER': 'lucas',
-#         'PASSWORD': '123',
-#         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
-#         'PORT': '3306',
-#     }
-# }
+    'default': {
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': 'expotec_semadec',
+        'USER': 'lucas',
+        'PASSWORD': 'jebmpem1',
+        'HOST': '162.241.2.198',   # Or an IP Address that your DB is hosted on
+        'PORT': '3306',
+    }
+}
 
-default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
+# default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
 
-DATABASES = { 'default': config('DATABASE_URL', default=default_dburl, cast=dburl), }
+# DATABASES = { 'default': config('DATABASE_URL', default=default_dburl, cast=dburl), }
 
 
 # Password validation
