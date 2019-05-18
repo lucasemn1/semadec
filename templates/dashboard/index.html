@@ -2,157 +2,178 @@
 {% load static %}
 
 {% block 'content' %}
-    <!-- <div class="py-5 bg-secondary">
-        <div class="container">
-            <div class="row mt-5">
-                <div class="col-md-12 p-0">
-                    <h3 class="text-white">Nenhuma notificação disponível</h3>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
-    <div class="container main px-4">
-        <div class="pb-3" id="equipes_participantes">
-            <div class="row pt-5 pb-2">
-                <div class="col-md-8 p-0">
-                    <h2 class="">Equipes participantes</h2>
-                </div>
-                <div class="col-md-4 p-1"><a class="btn px-5 text-decoration-none btn-block btn-primary" href="{% url 'equipe_create' %}">+ Nova equipe</a></div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 p-1">
-                    <div class="table-responsive">
-                        <table class="table table-bordered ">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th style="width: 50px;">ID</th>
-                                    <th>Nome</th>
-                                    <th>Turma</th>
-                                    <th>Modalidade</th>
-                                    <th>Criada em</th>
-                                    <th>Representante</th>
-                                    <th class="bt-tabela"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for equipe in equipes_participantes %}
-                                    {% for participante in equipe.participantes.all %}
-                                        {% if participante == user %}
-                                            <tr>
-                                                <th>{{equipe.id}}</th>
-                                                <td>{{equipe.nome}}</td>
-                                                <td>{{equipe.nome_turma}}</td>
-                                                <td>{{equipe.modalidade.nome}}</td>
-                                                <td>{{equipe.created_at}}</td>
-                                                <td>{{equipe.representante.nome}}, {{equipe.representante}}</td>
-                                                <td class=""><a class="btn btn-danger m-0 btn-block" href="{% url 'equipe_sair' equipe.id %}">Sair</a></td>
-                                            </tr>
-                                        {% endif %}
-                                    {% endfor %}
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        {% if user.is_superuser %}
-        <div class="pb-3">
-            <div class="row pt-5 pb-2">
-                <div class="col-md-8 p-0">
-                    <h2 class="">Modalidades</h2>
-                </div>
-                <div class="col-md-4 p-1"><a class="btn px-5 text-decoration-none btn-block btn-primary" href="{% url 'modalidade_create' %}">+ Nova
-                        Modalidade</a></div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 p-1">
-                    <div class="table-responsive">
-                        <table class="table table-bordered ">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th style="width: 50px;">ID</th>
-                                    <th>Nome</th>
-                                    <th style="width: 200px;">Sexo permitido</th>
-                                    <th class="bt-tabela"></th>
-                                    <th class="bt-tabela"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for modalidade in modalidades %}
-                                    <tr>
-                                        <th>{{modalidade.id}}</th>
-                                        <td>{{modalidade.nome}}</td>
-                                        <td>{{modalidade.sexo_permitido}}</td>
-                                        <td><a class="btn btn-block btn-warning" href="{% url 'modalidade_update' modalidade.id %}">Editar</a></td>
-                                        <td><a class="btn btn-danger btn-block" href="{% url 'modalidade_delete' modalidade.id %}">Deletar</a></td>
-                                    </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {% endif %}
-
-        <div class="py-3" id="minhas_equipes">
+<div class="container main px-4">
+    <div class="pb-3 bloco" id="equipes_participantes">
+        <div class="row pt-5 pb-2">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="text-center">Minhas equipes</h2>
+                    <h2 class="text-center">Equipes participantes</h2>
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-12 p-1">
+                {% if equipes_participantes %}
 
-        {% for equipe in minhas_equipes %}
-            <div class="py-2">
-                <div class="row">
-                    <div class="col-md-12 table-card" data-pingendo-transient="">
-                        <h2 class="">{{ equipe.nome }} - {{ equipe.modalidade.nome }}</h2>
-                        <div class="table-responsive">
-                            <table class="table table-bordered ">
-                                <thead class="thead-dark">
-                                    <tr>
-                                        <th style="width: 170px;">Matrícula</th>
-                                        <th>Nome</th>
-                                        <th>Email</th>
-                                        <th class="bt-tabela"></th>
-                                    </tr>
-                                </thead>
+                <div class="table-responsive">
+                    <table class="table table-striped ">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th style="width: 50px;">ID</th>
+                                <th>Nome</th>
+                                <th>Turma</th>
+                                <th>Modalidade</th>
+                                <th>Criada em</th>
+                                <th>Representante</th>
+                                <th class="bt-tabela"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for equipe in equipes_participantes %}
+                            {% for participante in equipe.participantes.all %}
+                            {% if participante == user %}
+                            <tr>
+                                <th>{{equipe.id}}</th>
+                                <td>{{equipe.nome}}</td>
+                                <td>{{equipe.nome_turma}}</td>
+                                <td>{{equipe.modalidade.nome}}</td>
+                                <td>{{equipe.created_at}}</td>
+                                <td>{{equipe.representante.nome}}, {{equipe.representante}}</td>
+                                <td class=""><a class="btn btn-danger m-0 btn-block"
+                                        href="{% url 'equipe_sair' equipe.id %}">Sair</a></td>
+                            </tr>
+                            {% endif %}
+                            {% endfor %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
 
-                                <tbody>
-                                    <tr>
-                                        <td>{{user.matricula}}</td>
-                                        <td>{{user.nome}}</td>
-                                        <td>{{user.email}}</td>
-                                        <td><i>Representante</i></td>
-                                    </tr>
+                {% else %}
 
-                                    {% for participante in equipe.participantes.all %}
-                                        <tr>
-                                            <td>{{participante.matricula}}</td>
-                                            <td>{{participante.nome}}</td>
-                                            <td>{{participante.email}}</td>
-                                            <td><a class="btn btn-danger btn-block" href="{% url 'equipe_remover_participante' id_equipe=equipe.id matricula=participante.matricula %}">Deletar</a></td>
-                                        </tr>
-                                    {% endfor %}
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="row my-1">
-                            <div class="col-md-4"><a class="btn btn-block my-1 btn-primary" href="{% url 'form_add_participante' equipe.id %}">+ Novo participante</a>
-                            </div>
-                            <div class="col-md-4"><a class="btn btn-warning btn-block my-1" href="{% url 'equipe_update' equipe.id %}">Editar equipe</a></div>
-                            <div class="col-md-4"><a class="btn btn-danger btn-block my-1" href="{% url 'equipe_delete' equipe.id %}">Deletar equipe</a></div>
-                        </div>
+                <div class="alert alert-dark" role="alert">
+                    Você ainda não está em nenhuma equipe <a href="#" class="alert-link"> crie uma!</a>.
+                </div>
+
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    {% if user.is_superuser %}
+    <div class="pb-3 bloco">
+        <div class="row pt-5 pb-2">
+            <div class="col-md-8 p-0">
+                <h2 class="">Modalidades</h2>
+            </div>
+            <div class="col-md-4 p-1"><a class="btn px-5 text-decoration-none btn-block btn-primary"
+                    href="{% url 'modalidade_create' %}">+ Nova
+                    Modalidade</a></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 p-1">
+                {% if modalidades %}
+
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th style="width: 50px;">ID</th>
+                                <th>Nome</th>
+                                <th style="width: 200px;">Sexo permitido</th>
+                                <th class="bt-tabela"></th>
+                                <th class="bt-tabela"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for modalidade in modalidades %}
+                            <tr>
+                                <th>{{modalidade.id}}</th>
+                                <td>{{modalidade.nome}}</td>
+                                <td>{{modalidade.sexo_permitido}}</td>
+                                <td><a class="btn btn-block btn-warning"
+                                        href="{% url 'modalidade_update' modalidade.id %}">Editar</a></td>
+                                <td><a class="btn btn-danger btn-block"
+                                        href="{% url 'modalidade_delete' modalidade.id %}">Deletar</a></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                {% else %}
+
+                <div class="alert alert-dark" role="alert">
+                    Nenhuma modadelidade cadastrada ainda.
+                </div>
+
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="row pt-5 pb-2" id="minhas_equipes">
+        <div class="col-md-8 p-0">
+            <h2 class="">Minhas equipes</h2>
+        </div>
+        <div class="col-md-4 p-1"><a class="btn px-5 text-decoration-none btn-block btn-primary"
+                href="{% url 'equipe_create' %}">+ Nova equipe</a></div>
+    </div>
+
+    {% for equipe in minhas_equipes %}
+    <div class="py-2">
+        <div class="row">
+            <div class="col-md-12 table-card" data-pingendo-transient="">
+                <h2 class="">{{ equipe.nome }} - {{ equipe.modalidade.nome }}</h2>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th style="width: 170px;">Matrícula</th>
+                                <th>Nome</th>
+                                <th>Email</th>
+                                <th class="bt-tabela"></th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>{{user.matricula}}</td>
+                                <td>{{user.nome}}</td>
+                                <td>{{user.email}}</td>
+                                <td><i>Representante</i></td>
+                            </tr>
+
+                            {% for participante in equipe.participantes.all %}
+                            <tr>
+                                <td>{{participante.matricula}}</td>
+                                <td>{{participante.nome}}</td>
+                                <td>{{participante.email}}</td>
+                                <td><a class="btn btn-danger btn-block"
+                                        href="{% url 'equipe_remover_participante' id_equipe=equipe.id matricula=participante.matricula %}">Deletar</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row my-1">
+                    <div class="col-md-4"><a class="btn btn-block my-1 btn-primary"
+                            href="{% url 'form_add_participante' equipe.id %}">+ Novo participante</a>
                     </div>
+                    <div class="col-md-4"><a class="btn btn-warning btn-block my-1"
+                            href="{% url 'equipe_update' equipe.id %}">Editar equipe</a></div>
+                    <div class="col-md-4"><a class="btn btn-danger btn-block my-1"
+                            href="{% url 'equipe_delete' equipe.id %}">Deletar equipe</a></div>
                 </div>
             </div>
-        {% endfor %}
+        </div>
     </div>
-    
+    {% endfor %}
+</div>
+
 {% endblock %}
 
 {% block 'scripts' %}

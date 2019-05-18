@@ -12,7 +12,6 @@ class Dashboard():
     @staticmethod
     @login_required
     def index(request):
-
         dados={
             'primeiro_nome': str(request.user.nome).split()[0],
             'titulo_pag': 'Página inicial',

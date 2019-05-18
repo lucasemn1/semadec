@@ -10,7 +10,16 @@
 }
 @font-face{
     font-family: 'thebold';
-    src: url('../fonts/theboldfont.ttf')
+    src: url('../fonts/theboldfont.ttf');
+}
+
+@font-face{
+    font-family: 'george';
+    src: url('../fonts/Louis\ George\ Cafe.ttf');
+}
+
+body{
+    font-family: 'george';
 }
 
 .parallax{
@@ -58,9 +67,26 @@ h1, h2, h3, h4{
     text-align: center;
 }
 
-button{
-    font-family: 'kiona';
+.btn-primary{
+    background-color: #92af7b;
 }
+
+.btn-primary:hover{
+    background-color: #658a23;
+}
+
+.text-primary{
+    color: #92af7b;
+}
+
+.text-primary:hover{
+    color: #658a23;
+}
+
+.bg-green{
+    background-color: #92af7b;
+}
+
 
 @media(max-width: 1080px){
     .parallax{

@@ -21,7 +21,7 @@
 <body>
     
     <!-- Nav -->
-    <nav class="navbar navbar-expand-md navbar-dark dark-strong fixed-top">
+    <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
         <div class="container"> <button class="navbar-toggler navbar-toggler-right border-0" type="button"
                 data-toggle="collapse" data-target="#navbar12">
                 <span class="navbar-toggler-icon"></span>
@@ -41,7 +41,7 @@
                             {{user.nome}} </a> </li> -->
 
                     <div class="dropdown">
-                        <button class="btn text-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="btn text-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Bem-vindo(A), {{primeiro_nome}}!
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -54,15 +54,9 @@
         </div>
     </nav>
 
-    <div class="row bg-dark m-0">
+    <div class="row m-0" id="cabecalho">
         <div class="col-12">
-            <!-- Logo -->
-            <div class="row py-5" id="logo">
-                <div class="col-12">
-                    <h1 class="pt-3"><b>SEMADEC 2019</b></h1>
-                    <h2>TEXTO DO SIGNIFICADO DE SEMADEC</h2>
-                </div>
-            </div>
+            <img src="{% static 'imgs/logo_semadec2.png' %}" alt="" id="logo">
         </div>
     </div>
 
@@ -75,7 +69,7 @@
                 <div class="col-md-12 text-center align-self-center p-4">
                     <p class=""> <strong>SEMADEC 2018.</strong> <br> IFRN - Campus Avançado Parelhas - Todos os
                         direitos
-                        reservados<br> Desenvolvido por: <a href="https://github.com/lucasemn1" target="blank">Lucas Emanuel N. Nóbrega Dias</a> <br></p>
+                        reservados<br> Desenvolvido por: <a href="https://github.com/lucasemn1" target="blank" class="text-primary">Lucas Emanuel N. Nóbrega Dias</a> <br></p>
                 </div>
             </div>
         </div>
