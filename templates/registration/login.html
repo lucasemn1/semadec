@@ -3,15 +3,22 @@
 {% load bootstrap4 %}
 
 {% block 'content' %}
-    <h1 class="mb-4">ENTRAR</h1>
-    <form method="POST">
-        {% csrf_token %}
-        {% bootstrap_form form %}
-        <div class="buttons pt-3 text-center">
-            <button type="submit" class="btn btn-primary btn-sm w-100 btn-block p-2">Confirmar</button>
-            <a class="btn btn-link p-2 my-1" href="{% url 'usuario_create' %}">Criar conta</a>
-            <a class="btn btn-link p-2 my-1" href="#">Página dos visitantes</a>
-        </div>
-    </form>
 
+<form method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <div class="row botoes_form">
+        <div class="col-md-4 col-sm-12">
+            <a href="{% url 'index' %}" class="btn btn-outline-success" style="width: 100%">Página inicial</a>
+        </div>
+
+        <div class="col-md-4 col-sm-12">
+            <a href="{% url 'usuario_create' %}" class="btn btn-outline-success" style="width: 100%">Criar conta</a>
+        </div>
+
+        <div class="col-md-4 col-sm-12">
+            <button type="submit" class="btn btn-success" style="width: 100%">Fazer login</button>
+        </div>
+    </div>
+</form>
 {% endblock %}

@@ -1,0 +1,130 @@
+{% extends 'template.html' %}
+
+{% block 'content' %}
+<div class="container pt-5 pb-2 text-center">
+    <h1>Equipes que você está</h1>
+    <hr>
+
+    {% if equipesParticipantes %}
+    <div class="row my-5">
+        <div class="col-12">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Modalidade</th>
+                            <th scope="col">Representa</th>
+                            <th scope="col">Representante</th>
+                            <th scope="col" style="width: 15%"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for equipe in equipesParticipantes %}
+                        <tr>
+                            <td scope="row">{{equipe.nome}}</td>
+                            <td scope="row">{{equipe.modalidade.titulo}}</td>
+                            <td scope="row">{{equipe.representacao}}</td>
+                            {% if user == equipe.representante %}
+                            <td scope="row">{{equipe.representante.nome}} (você)</td>
+                            <td></td>
+                            {% else %}
+                            <td scope="row">{{equipe.representante.nome}}</td>
+                            <td><a href="{% url 'equipe_sair' equipe.id %}" class="btn btn-danger"
+                                    style="width: 100%">Sair</a></td>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    {% else %}
+    <div class="row my-5 text-center">
+        <div class="col-12">
+            <h5>Você ainda não participa de nenhuma equipe.</h5>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<div class="container pb-5 text-center">
+    <div class="mb-5">
+        <h1>Equipes que você representa</h1>
+        <hr>
+        <a href="{% url 'equipe_create' %}" class="btn btn-success">Nova equipe</a>
+    </div>
+
+    {% if equipesRepresentante %}
+    {% for equipe in equipesRepresentante %}
+    <div class="row my-4 p-4" style="background-color: rgba(0,0,0,0.04);">
+        <div class="col-12">
+            <div class="row my-2">
+                <div class="col-md-6 col-sm-12 text-left">
+                    <h3 class="py-1">{{equipe.equipe.nome}} | {{equipe.equipe.modalidade.titulo}} | {{equipe.quantidadeDeVagas}}
+                        vagas disponíveis</h3>
+                </div>
+                <div class="col-md-2 col-sm-12 py-1"> <a href="{% url 'equipe_participar_form' equipe.equipe.id %}" class="btn btn-success" style="width: 100%">Adicionar
+                        membro</a> </div>
+                <div class="col-md-2 col-sm-12 py-1"> <a href="{% url 'equipe_update' equipe.equipe.id %}" class="btn btn-warning" style="width: 100%">Editar</a> </div>
+                <div class="col-md-2 col-sm-12 py-1"> <a href="{% url 'equipe_delete' equipe.equipe.id %}" class="btn btn-danger" style="width: 100%">Apagar</a> </div>
+            </div>
+            <div class="row my-3">
+                <div class="col-12">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th colspan="5">Membros</th>
+                                </tr>
+                                <tr>
+                                    <th scope="col">Matrícula</th>
+                                    <th scope="col">Nome</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col" style="width: 15%"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td scope="row">{{user.matricula}}</td>
+                                    <td scope="row">{{user.nome}}</td>
+                                    <td scope="row">{{user.email}}</td>
+                                    <td><i>Representante</i></td>
+                                </tr>
+                                {% for participante in equipe.participantes %}
+                                <tr>
+                                    <td scope="row">{{participante.matricula}}</td>
+                                    <td scope="row">{{participante.nome}}</td>
+                                    <td scope="row">{{participante.email}}</td>
+                                    <td><a href="{% url 'equipe_remover' id_equipe=equipe.equipe.id matricula_user=participante.matricula %}"
+                                            class="btn btn-danger">Remover</a></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    {% else %}
+    <div class="row my-5 text-center">
+        <div class="col-12">
+            <h5>Você não representa nenhuma equipe.</h5>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block 'scripts' %}
+    <script>
+        $('html, body').animate({ scrollTop: 0 }, 50);
+        $('html, body').animate({ scrollTop: 440 }, 50);
+    </script>
+{% endblock %}

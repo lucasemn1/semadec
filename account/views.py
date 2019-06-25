@@ -19,18 +19,17 @@ class SessaoView():
 
     @staticmethod
     def update(request):
-        pass
-        # form = SingUpUserForm(request.POST or None, instance=request.user)
+        form = SingUpUserForm(request.POST or None, instance=request.user)
 
-        # if form.is_valid():
-        #     # password1 = form.cleaned_data['password1']
-        #     # password2 = form.cleaned_data['password2']
+        if form.is_valid():
+            # password1 = form.cleaned_data['password1']
+            # password2 = form.cleaned_data['password2']
 
-        #     form.save()
+            form.save()
 
-        #     return redirect('index_dashboard')
-        # else:
-        #     return render(request, 'registration/registre.html', {'form': form, 'titulo_pag': })
+            return redirect('index')
+        else:
+            return render(request, 'registration/update.html', {'form': form, 'titulo_pag': 'A'})
 
     @staticmethod
     def login(request):
@@ -42,7 +41,7 @@ class SessaoView():
 
             user = authenticate(matricula=matricula, password=password)
             login(request, user)
-            return redirect('index_dashboard')
+            return redirect('index')
         else:
             return render(request, 'registration/login.html', {'form': form, 'titulo_pag': 'LOGIN'})
 

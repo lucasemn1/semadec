@@ -1,0 +1,25 @@
+{% extends 'template.html' %}
+
+{% load bootstrap4 %}
+
+{% block 'content' %}
+<div class="container py-5 text-center">
+    <h1>{{titulo}}</h1>
+    <hr>
+    <div class="form">
+        <form method="post">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <div class="row botoes_form">
+                <div class="col-md-6 col-sm-12">
+                    <a href="{% url 'equipe_list' %}" class="btn btn-danger" style="width: 100%">Cancelar</a>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <button type="submit" class="btn btn-success" style="width: 100%">Salvar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

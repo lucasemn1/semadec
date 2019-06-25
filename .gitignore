@@ -1,8 +1,3 @@
-# See the name for you IDE
+.sqlite3
 .idea
-# If you are using sqlite3
-*.sqlite3
-# Name of your virtuan env
-# .vEnv
-*pyc
-*.vscode
+.vscode

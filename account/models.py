@@ -5,18 +5,6 @@ import re
     
 # Create your models here.
 class UsuarioManager(BaseUserManager):
-    # use_in_migrations = True
-
-    # def _create_user(self, matricula, nome, email, cpf, nivelDeSeguranca, password, **extraextra_fields_fields):
-    #     if not nome:
-    #         raise ValueError(_("The given username must be set"))
-
-    #     email = self.normalize_email(email)
-    #     user = self.model(matricula=matricula, nome=nome, email=email, cpf=cpf, nivelDeSeguranca=nivelDeSeguranca, **extra_fields)
-    #     user.set_password(password)
-    #     user.save(using=self._db)
-    #     return user
-
     def create_user(self, matricula, nome, email, password, cpf=None):
         user = self.model(matricula=matricula, nome=nome, email=email, cpf=cpf, password=password)
         user.set_password(password)

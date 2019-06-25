@@ -13,21 +13,20 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
+
 from semadec import settings
+from django.contrib import admin
 from django.urls import path, include
+from campeonato.views import CampeonatoView
 from django.contrib.auth import views as auth_views
 from django.conf.urls.static  import static
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('dashboard/', include('dashboard.urls')),
+    path('', CampeonatoView.index, name='index'),
+    path('campeonato/', include('campeonato.urls')),
     path('account/', include('account.urls')),
     path('login/', auth_views.LoginView.as_view(), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-
-    # Visitantes
-    path('', include('visitantes.urls')),
-
-
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] #+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

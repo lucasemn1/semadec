@@ -1,283 +1,34 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <!-- 
-        Desenvolvido por: Lucas Emanuel N. Nóbrega Dias
-        Maio de 2019
-        Agredicimento: Marçal Moraes, Karlos Thadeus, toda minha família e toda a equipe do campus que me auxiliaram
+{% extends 'template.html' %}
 
-        ---------------------------
+{% load static %}
 
-        Obrigado Deus por toda sabedoria e conhecimento para construir esse projeto e muito obrigado Hérika por me acalmar 
-        e me mostrar o caminho nas horas que pensei em desistir. Amo você, linda <3.
-     -->
+{% block 'content' %}
 
-    {% load static %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap-4.3.1.css' %}">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/geral.css' %}">
-    <link rel="stylesheet" href="{% static 'css/visitantes.css' %}">
-    <title>SEMADEC 2019, IFRN Campus Avançado Parelhas.</title>
-</head>
-
-<body class="parallax">
-    <div class="container-fluid p-0">
-        <!-- Nav -->
-        <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-            <div class="container-fluid"> <button class="navbar-toggler navbar-toggler-right border-0" type="button"
-                    data-toggle="collapse" data-target="#navbar12">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbar12">
-                    <a href="#">
-                        <img src="{% static 'imgs/logo_campus.png' %}" alt="" id="logo_campus">
-                    </a>
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item"> <a class="nav-link" href="{% url 'index_dashboard' %}">P. Inicial</a>
-                        </li>
-                        <li class="nav-item"> <a class="nav-link"
-                                href="{% url 'index_dashboard' %}#equipes_participantes">Campeonatos</a> </li>
-                        <li class="nav-item"> <a class="nav-link"
-                                href="{% url 'index_dashboard' %}#minhas_equipes">Gincana</a> </li>
-                        <li class="nav-item"> <a class="nav-link"
-                                href="{% url 'index_dashboard' %}#minhas_equipes">Horários</a> </li>
-                    </ul>
-                    {% if primeiro_nome %}
-                    <ul class="navbar-nav">
-                        <div class="dropdown">
-                            <button class="btn text-dark dropdown-toggle" type="button" id="dropdownMenuButton"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Bem-vindo(a), {{primeiro_nome}}!
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Informações</a>
-                                <a class="dropdown-item" href="{% url 'logout_user' %}">Sair</a>
-                            </div>
-                        </div>
-                    </ul>
-                    {% else %}
-                    <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Faça login ou
-                                cadastre-se</a></li>
-                    </ul>
-                    {% endif %}
-                </div>
-            </div>
-        </nav>
-
-        <!-- Logo -->
-        <div class="container-fluid" id="logo">
-            <div class="row mx-0">
-                <div class="col-12 text-center">
-                    <img src="{% static 'imgs/logo_semadec2.png' %}" alt="Logo da SEMADEC. Autor: Júlio Cesar."
-                        id="logo_semadec">
-                </div>
-            </div>
-        </div>
-
-        <!-- Conteúdo principal -->
-        <div class="container-fluid pb-3" id="content">
-            <!-- Eventos internos -->
-            <div class="container">
-                <div class="row evento_topicos">
-                    <div class="col-md-4 col-sm-12 py-2">
-                        <img src="{% static 'imgs/running.png' %}" alt="Corredor icon. By: Free Icon">
-                        <h5>Esportes</h5>
-                        <hr>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem voluptatum asperiores id,
-                            omnis!</p>
-                    </div>
-                    <div class="col-md-4 col-sm-12 py-2">
-                        <img src="{% static 'imgs/parchment.png' %}" alt="Escrita icon. By: Free Icon">
-                        <h5>Cultura</h5>
-                        <hr>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem voluptatum asperiores id,
-                            omnis!</p>
-                    </div>
-                    <div class="col-md-4 col-sm-12 py-2">
-                        <img src="{% static 'imgs/award.png' %}" alt="Medalha icon. By: Free Icon">
-                        <h5>Gincana</h5>
-                        <hr>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem voluptatum asperiores id,
-                            omnis!</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Sobre o evento -->
-            <div class="boxes">
-                <div class="row">
-                    <div class="col-md-6 col-sm-12 imagem">
-                        <img src="{% static 'imgs/campus_desenho.png' %}" alt="">
-                    </div>
-                    <div class="col-md-6 col-sm-12 texto bg-light">
-                        <h1>O Evento</h1>
-                        <hr>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At quibusdam nisi quasi possimus
-                            deserunt praesentium, unde veniam repellat. Qui quidem et, vitae nesciunt provident quo sunt
-                            quas repellat veritatis dicta!</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Regulamentos -->
-            <div class="container my-5">
-                <div class="row py-5">
-                    <div class="col-12 regulamentos">
-                        <h1>Regulamentos</h1>
-                        <hr>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et ullam quas iusto blanditiis
-                            similique obcaecati earum, voluptate quod numquam optio. Necessitatibus est fugit
-                            perspiciatis maiores ipsam voluptates optio id facere!</p>
-
-                        <div class="row my-1 px-5">
-                            <div class="col-md-4"><a class="btn btn-block my-1 btn-semadec" href="#">Clica aqui,
-                                    linda</a>
-                            </div>
-                            <div class="col-md-4"><a class="btn btn-semadec btn-block my-1" href="#">Editar equipe</a>
-                            </div>
-                            <div class="col-md-4"><a class="btn btn-semadec btn-block my-1" href="#">Deletar equipe</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Inscrições no campeonato -->
-            <div class="boxes">
-                <div class="row">
-                    <div class="col-md-5 col-sm-12 imagem">
-                        <img src="{% static 'imgs/running_white.png' %}" id="img_campeonato" alt="">
-                    </div>
-                    <div class="col-md-7 col-sm-12 texto bg-light">
-                        <h1>Campeonato</h1>
-                        <hr>
-                        <p>Só poderão participar do campeonato alunos matriculados no campus. Para inscrever sua equipe e/ou participar de equipes já existentes, é necessário que você
-                            se inscreva no nosso sistema.
-
-                            <div class="row">
-                                <div class="col-12">
-                                    <a class="btn btn-block my-1 btn-semadec" href="{% url 'usuario_create' %}">Inscreva-se aqui!</a>
-                                </div>
-                            </div>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container my-5">
-                <div class="row horarios mt-5s">
-                    <div class="col-12">
-                        <h1>Horários</h1>
-                        <hr>
-
-                        <div class="table-responsive">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Categoria</th>
-                                        <th scope="col">Título</th>
-                                        <th scope="col">Data</th>
-                                        <th scope="col">Início</th>
-                                        <th scope="col">Fim</th>
-                                        <th scope="col">Local</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Mapa -->
-        <div class="m-0">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.573254249566!2d-36.66969688529936!3d-6.699655167363305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7afad964796e617%3A0xed73fcb56f0ca5e8!2sInstituto+Federal+de+Educa%C3%A7%C3%A3o%2C+Ci%C3%AAncia+e+Tecnologia+do+Rio+Grande+do+Norte%2C+Campus+Avan%C3%A7ado+Parelhas!5e0!3m2!1spt-BR!2sbr!4v1557543492706!5m2!1spt-BR!2sbr"
-                id="mapa" frameborder="0" style="border:0" allowfullscreen></iframe>
-        </div>
-
-        <!-- Rodapé -->
-        <div class="pt-3 pb-2 m-0 text-white" id="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-center align-self-center p-4">
-                        <p class="">
-                            <strong>SEMADEC 2019.</strong> <br>
-                            IFRN - Campus Avançado Parelhas - Todos os direitos reservados<br>
-                            Desenvolvido por: Lucas Emanuel N. Nóbrega Dias <br>
-
-                            <a href="https://github.com/lucasemn1" target="blank"
-                                class="text-light"><i class="fa fa-github fa-fw" ></i></a>
-                            <a href="https://www.linkedin.com/in/lucas-n%C3%B3brega-490514170/" target="blank"
-                                class="text-light"><i class="fa fa-linkedin-square fa-fw" ></i></a>
-                        </p>
-
-                        <img src="{% static 'imgs/logo_campus.png' %}" alt="" srcset=""><br>
-                    </div>
-                </div>
+<div class="container-fluid p-0 bg-white">
+    <div id="regulamentacao" class="bg-light py-3">
+        <div id="regulamentos" class="container py-5">
+            <h1>Regulamentos</h1>
+            <hr>
+            <h5>Leia atentamente os regulamentos!</h5>
+            <div class="mt-4">
+                <a href="" class="btn btn-success">Gincana</a>
+                <a href="" class="btn btn-success">Campeonato</a>
             </div>
         </div>
     </div>
 
-    <script src="{% static 'js/jquery-3.4.0.min.js' %}"></script>
-    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/geral.js' %}"></script>
-</body>
+    <div id="teatro" class="text-center py-5">
+        <h1>Teatro</h1>
+        <hr>
+        <img id="imagem_teatro" src="{% static 'imgs/banner_teatro.jpg' %}" alt="Banner do teatro">
+    </div>
+</div>
 
-</html>
+{% endblock %}
+{% block 'style' %}
+    <style>
+        #imagem_teatro{
+            width: 50%;
+        }
+    </style>
+{% endblock %}

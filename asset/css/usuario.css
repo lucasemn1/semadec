@@ -1,0 +1,36 @@
+.form{
+    background-color: white;
+    border-radius: 0px;
+    padding: 50px;
+    margin-top: 100px;
+    margin-bottom: 10px;
+    width: 60%;
+}
+
+.imagem{
+    text-align: center;
+}
+.imagem #logo_semadec_img{
+    width: 70%;
+}
+
+.aviso{
+    color: red;
+    text-align: center;
+    font-size: 15pt;
+    margin-bottom: 20px;
+}
+
+input[type='text'], input[type='email'], input[type='password']{
+    padding: 22px 10px;
+    border-radius: 0px;
+}
+
+@media(max-width: 576px){
+    .imagem #logo_semadec_img{
+        width: 100%;
+    }
+    .form{
+        width: 100%;    
+    }
+}

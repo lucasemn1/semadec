@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+    Desenvolvido por: Lucas Emanuel N. Nóbrega Dias
+    Junho de 2019
+    Agredicimento: Marçal Moraes, Karlos Thadeus e toda minha família.
+
+    ---------------------------
+
+    Obrigado Deus por toda sabedoria e conhecimento para construir esse projeto e muito obrigado Hérika por me acalmar 
+    e me mostrar o caminho nas horas que pensei em desistir. Amo você, linda <3.
+    -->
+
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/geral.css' %}">
+    <title>{{titulo}}</title>
+</head>
+<body>
+    <h1>{{titulo}}</h1>
+    <p>{{mensagem}}</p>
+    <a href="{% url 'index' %}">Voltar para a página inicial</a>
+</body>
+</html>

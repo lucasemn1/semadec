@@ -1,0 +1,38 @@
+{% extends 'template.html' %}
+
+{% block 'content' %}
+<div class="container py-5 text-center">
+    <h1>Modalidades</h1>
+    <hr>
+    <a href="{% url 'modalidade_create' %}" class="btn btn-success">Nova modalidade</a>
+    <div class="row my-5">
+        <div class="col-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Título</th>
+                        <th scope="col">Sexo permitido</th>
+                        <th scope="col">Quantidade de vagas</th>
+                        <th scope="col" style="width: 15%"></th>
+                        <th scope="col" style="width: 15%"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for modalidade in modalidades %}
+                    <tr>
+                        <th scope="row">{{modalidade.id}}</th>
+                        <td>{{modalidade.titulo}}</td>
+                        <td>{{modalidade.sexoPermitido}}</td>
+                        <td>{{modalidade.quantidadeDeVagas}} vagas</td>
+                        <td><a href="{% url 'modalidade_update' modalidade.id %}" class="btn btn-warning" style="width: 100%">Editar</a></td>
+                        <td><a href="{% url 'modalidade_delete' modalidade.id %}" class="btn btn-danger" style="width: 100%">Apagar</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

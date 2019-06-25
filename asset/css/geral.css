@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css?family=Abel&display=swap'); /* font-family: 'Abel', sans-serif;  */
+
+body{
+    font-family: 'Abel', sans-serif;
+    background-image: url('../imgs/background.jpg');
+    background-size: 170%;
+    background-position-x: 50%;
+    background-position-y: 25%;
+    background-attachment: fixed;
+}
+
+.navbar{
+    padding: 20px 15px;
+}
+
+#logo_nav{
+    height: 35px;
+}
+
+.navbar, .navbar .dropdown-toggle{
+    /* font-family: 'Abel', sans-serif; */
+    text-transform: uppercase;
+    font-size: 11pt;
+    letter-spacing: 2px;
+}
+
+.nav-link{
+    border-bottom: 1px solid rgba(0, 0, 0, 0);
+}
+
+.nav-link:hover{
+    transition: 0.3s;
+    /* color: #009747; */
+    border-bottom: 1px solid #009747;
+}
+
+.cabecalho{
+    text-align: center;
+    margin-top: 140px;
+    margin-bottom: 70px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#logo_semadec_img{
+    width: 100%;
+    padding: 30px
+}
+
+#sobre_a_semadec{
+    width: 100%;
+    height: 100%;
+    /* background-color: #ffffff; */
+    border-radius: 10px;
+    padding: 20px;
+}
+
+h1{
+    text-transform: uppercase;
+    margin-bottom: 3px;
+    letter-spacing: 5px;
+    font-size: 28pt;
+}
+
+hr{
+    width: 50px;
+    border: none;
+    border: 2px solid #000000;
+    margin: 10px auto 20px auto;
+}
+
+#regulamentacao{
+    text-align: center;
+}
+
+.form{
+    width: 40%;
+    margin: 0px auto;
+}
+.botoes_form {
+    margin-top: 20px;
+}
+.botoes_form a, .botoes_form button{
+    margin-top: 10px;
+}
+
+/* Cores */
+.bg-white{
+    background-color: #ffffff;
+}
+
+
+@media(max-width: 576px){
+    body{
+        background-size: 400%;
+        background-position-y: 20%;
+    }
+    .cabecalho{
+        margin-top: 110px;
+        margin-bottom: 30px;
+    }
+    .form{
+        width: 100%;
+    }
+}

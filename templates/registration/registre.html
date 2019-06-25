@@ -3,16 +3,25 @@
 {% load bootstrap4 %}
 
 {% block 'content' %}
-    <h1 class="mb-4">Novo cadastro</h1>
-    <p class="text-danger"><b>LEMBRE-SE</b> da senha informada pois até o momento <b>NÃO É POSSÍVEL</b> recuperá-la ou alterá-la.</p>
-    <form method="POST">
-        {% csrf_token %}
-        {% bootstrap_form form %}
-        <div class="buttons pt-3 text-center">
-            <button type="submit" class="btn btn-primary btn-sm w-100 btn-block p-2">Confirmar</button>
-            <a class="btn btn-link p-2 my-1" href="{% url 'login' %}">Login</a>
-            <a class="btn btn-link p-2 my-1" href="#">Página dos visitantes</a>
-        </div>
-    </form>
 
+<div class="aviso">
+    Aviso: preencha o formulário cuidadosamente, pois ainda não é possível alterar as informações
+    posteriormente.
+</div>
+<form method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <div class="row botoes_form">
+        <div class="col-md-4 col-sm-12">
+            <a href="{% url 'index' %}" class="btn btn-outline-success" style="width: 100%">Página inicial</a>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <a href="{% url 'login' %}" class="btn btn-outline-success" style="width: 100%">Login</a>
+        </div>
+
+        <div class="col-md-4 col-sm-12">
+            <button type="submit" class="btn btn-success" style="width: 100%">Salvar</button>
+        </div>
+    </div>
+</form>
 {% endblock %}
