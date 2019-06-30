@@ -8,7 +8,12 @@ from django.contrib.auth.decorators import login_required
 class CampeonatoView():
     @staticmethod
     def index(request):
-        return render(request, 'visitantes/index.html', {'titulo': 'Teste'})
+        dados = {
+            'titulo': 'Página inicial',
+        }
+
+
+        return render(request, 'visitantes/index.html', dados)
 
 class ModalidadeView():
     @staticmethod
@@ -34,7 +39,7 @@ class ModalidadeView():
             return redirect('modalidade_list')
         else:
             dados = {
-                'titulo': '',
+                'titulo': 'Nova modalidade',
                 'form': form
             }
 
@@ -53,7 +58,7 @@ class ModalidadeView():
             return redirect('modalidade_list')
         else:
             dados = {
-                'titulo': '',
+                'titulo': 'Atualizar modalidade',
                 'form': form
             }
 

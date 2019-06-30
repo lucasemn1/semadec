@@ -10,9 +10,17 @@
             <h1>Regulamentos</h1>
             <hr>
             <h5>Leia atentamente os regulamentos!</h5>
-            <div class="mt-4">
-                <a href="" class="btn btn-success">Gincana</a>
-                <a href="" class="btn btn-success">Campeonato</a>
+            <div class="container mt-4">
+                <div class="row">
+                    <div class="col-md-4 col-sm-12"><a href="{% static 'pdfs/Regulamento Específico  - Tênis de mesa.pdf' %}" target="blank" class="btn btn-success" style="width: 100%; margin: 5px;">Tênis de mesa</a></div>
+                    <div class="col-md-4 col-sm-12"><a href="{% static 'pdfs/Regulamento Específico - Atletismo .pdf' %}" target="blank" class="btn btn-success" style="width: 100%; margin: 5px;">Atletismo</a></div>
+                    <div class="col-md-4 col-sm-12"><a href="{% static 'pdfs/Regulamento específico - Futsal.pdf' %}" target="blank" class="btn btn-success" style="width: 100%; margin: 5px;">Futsal</a></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-sm-12"><a href="{% static 'pdfs/Regulamento específico - Queimada.pdf' %}" target="blank" class="btn btn-success" style="width: 100%; margin: 5px;">Queimado</a></div>
+                    <div class="col-md-4 col-sm-12"><a href="{% static 'pdfs/Regulamento específico - Voleibol .pdf' %}" target="blank" class="btn btn-success" style="width: 100%; margin: 5px;">Voleibol</a></div>
+                    <div class="col-md-4 col-sm-12"><a href="{% static 'pdfs/Regulamento específico - Xadrez.pdf' %}" target="blank" class="btn btn-success" style="width: 100%; margin: 5px;">Xadrez</a></div>
+                </div>
             </div>
         </div>
     </div>
@@ -20,7 +28,8 @@
     <div id="teatro" class="text-center py-5">
         <h1>Teatro</h1>
         <hr>
-        <img id="imagem_teatro" src="{% static 'imgs/banner_teatro.jpg' %}" alt="Banner do teatro">
+        <a href="{% static 'imgs/banner_teatro.jpg' %}" data-lightbox="image-1" data-title="Teatro"><img id="imagem_teatro" src="{% static 'imgs/banner_teatro.jpg' %}" alt="" srcset=""></a>
+        <!-- <img id="imagem_teatro" src="{% static 'imgs/banner_teatro.jpg' %}" alt="Banner do teatro"> -->
     </div>
 </div>
 

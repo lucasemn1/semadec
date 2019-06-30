@@ -12,5 +12,4 @@ class SingUpUserForm(UserCreationForm):
     class Meta:
         model = Usuario
         fields = ['matricula', 'nome', 'email', 'cpf', 'password1', 'password2']
-
     

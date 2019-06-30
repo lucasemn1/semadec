@@ -22,7 +22,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/geral.css' %}">
-    <title>{{titulo}}</title>
+    <link rel="stylesheet" href="{% static 'css/lightbox.css' %}">
+    <title> SEMADEC | {{titulo}}</title>
+    <link rel="shortcut icon" href="{% static 'imgs/if_logo.png' %}" type="image/x-icon">
     {% block 'style' %}
     {% endblock %}
 </head>
@@ -60,7 +62,7 @@
                     </ul>
 
                     {% else %}
-                    <a class="btn btn-outline-success navbar-btn ml-md-2" href="{% url 'login_user' %}">Fazer login</a>
+                    <a class="btn btn-outline-success navbar-btn ml-md-2" href="{% url 'login' %}">Fazer login</a>
                     {% endif %}
                 </div>
             </div>
@@ -128,6 +130,13 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <script src="{% static 'js/geral.js' %}"></script>
+    <script src="{% static 'js/lightbox.js' %}"></script>
+    <script>
+        lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true
+        })
+    </script>
     {% block 'scripts' %}
     {% endblock %}
 </body>
